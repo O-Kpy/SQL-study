@@ -1,0 +1,5 @@
+SELECT *
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE start_station_name = 'Japantown' AND end_station_name = 'Japantown'
+LIMIT 1000;
+# select, from, where 조건 연산까지
