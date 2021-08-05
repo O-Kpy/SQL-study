@@ -69,4 +69,21 @@
 실습2 국가 면적 크기로 내림차순하여 나라 보기
  = ```SELECT * FROM file ORDER BY surfacearea DESC```
  
+- DISTINCT(중복 제외하고 보여줌)
+  1. ex) ```SELECT DISTINCT Countrycode FROM city``` ==> 중복 제거 한 Countrycode를 출력
+
+- LIMIT
+  1. 출력 개수 제한 ==> 서버의 처리량을 많이 사용해 서버의 전반적인 성능을 저하 시킬 우려가 있을 경우 사용
+
+- GROUP BY(그룹으로 묶어주는 역할 HAVING(조건)과 같이 쓰인다.)
+  1. 집계함수를 함깨 사용(SUM(), AVG(), MAX(), MIN(), COUNT(), STDEV(), VARIANCE() 등...)
+  2. 집계함수 컬럼의 이름을 바꾼다 == AS 'NAME'
+  3. ex) ```SELECT NAME, MAX(population) AS 'MAX' FROM city GROUP BY NAME``` ==> NAME으로 그룹바이 해서 그 중에 가장 높은 population 반환
+
+- HAVING(GROUP BY의 조건절)
+  1. GROUP BY의 조건 제한하는 개념
+  2. 반드시 GROUP BY 다음에 나옴
+  3. ex) ```SELECT NAME, MAX(population) AS 'MAX' FROM city GROUP BY NAME HAVING 'MAX' > 400000``` ==> NAME으로 그룹 바이 한 NAME중에 population이 가장 높은 값 그리고 그 것 중에 400000 이상인 것들 반환
+
+ 
 
