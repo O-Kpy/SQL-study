@@ -85,5 +85,17 @@
   2. 반드시 GROUP BY 다음에 나옴
   3. ex) ```SELECT NAME, MAX(population) AS 'MAX' FROM city GROUP BY NAME HAVING 'MAX' > 400000``` ==> NAME으로 그룹 바이 한 NAME중에 population이 가장 높은 값 그리고 그 것 중에 400000 이상인 것들 반환
 
+- ROLLUP(총합 or 중간 합계가 필요할 경우 사용)
+  1. GROUP BY 절과 함께 WITH ROLLUP문 사용
+  2. ex) ```SELECT countrycode, name, SUM(population) FROM city GROUP BY countrycode, name, WITH ROLLUP``` ==> 도시 코드(countrycode)와 도시 이름(name)별 SUM(population)
+
+- JOIN(여러 개의 테이블을 붙일 때) == 파이썬 merge, concat
+  1. 여러 테이블에서 가져온 레코드를 조합하여 하나의 테이블을 만들때
+  2. ex) ```SELECT * FROM city JOIN country(붙일 테이블) ON (조건)city.countrycode = country.code``` ==> city 테이블과 country 테이블을 붙인다 어떻게? city의 countrycode, country의 code가 같은 것으로
+  3. city의 countrycode와 country의 code는 외래키(FK)
+
+
+# MYSQL 내장함수(문자열 함수, 수학 함수, 날짜와 시간 함수)
+
  
 
